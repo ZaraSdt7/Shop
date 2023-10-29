@@ -1,2 +1,3 @@
 const Application = require("./app/server")
-new Application(5600,"mongodb://127.0.0.1:27017/ShopDB")
+require("dotenv").config()
+new Application(process.env.PORT,process.env.DB_URL)
