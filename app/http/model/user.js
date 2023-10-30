@@ -23,9 +23,13 @@ bills:{type:[],default:[]},
 discount:{type:Number,default:0},
 role:{type:[String] , default:"USER"},
 products:{type:[mongoose.Types.ObjectId],ref:"product",default:[]},
+<<<<<<< HEAD
 bascket:{type:Bascketschema},
 accesstoken:{type:String,default:''},
 RefreshToken:{type:String,default:''}
+=======
+bascket:{type:Bascketschema}
+>>>>>>> 756a095c2372d24b879578112ed07d16a2263bd4
 
 },{
     timestamps:true,
