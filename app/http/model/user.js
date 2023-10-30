@@ -1,5 +1,12 @@
 const { default: mongoose } = require("mongoose");
-
+const Productschema = new mongoose.Schema({
+ProductID:{type :mongoose.Types.ObjectId , ref :"product"},
+count:{type:Number , default:0},
+image:{type:String , default:[]}    
+})
+const Bascketschema = new mongoose.Schema({
+    products:{type:[Productschema]}
+})
 const UserSchema = new mongoose.Schema({
 user_name :{type:String , required:true , lowercase:true},
 mobile:{type: String , required:true , unique:true},
@@ -16,7 +23,7 @@ bills:{type:[],default:[]},
 discount:{type:Number,default:0},
 role:{type:[String] , default:"USER"},
 products:{type:[mongoose.Types.ObjectId],ref:"product",default:[]},
-bascket:{type:[]}
+bascket:{type:Bascketschema}
 
 },{
     timestamps:true,
@@ -25,3 +32,7 @@ bascket:{type:[]}
     }
 })
 UserSchema.index({user_name:"text",mobile:"text",address:"text"})
+
+module.exports ={
+    Usermodel:mongoose.model("user",UserSchema)
+}
