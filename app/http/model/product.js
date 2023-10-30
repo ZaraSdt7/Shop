@@ -1,4 +1,5 @@
 const { default: mongoose } = require("mongoose");
+const { Comentschema } = require("./public.schema");
 
 const Productschema = new mongoose.SchemaType({
 nema_product:{type:String , required:true},
@@ -23,7 +24,8 @@ bookmark:{type:[mongoose.Types.ObjectId],ref:"user",default:[]},
 supplier:{type:mongoose.Types.ObjectId , ref:"user"},
 price:{type:Number, required:true,default:[] },
 discount:{type:Number , required:true , default:[]},
-count:{type:Number }
+count:{type:Number },
+comment:{type:[Comentschema],default:[]}
 
 },{
    timestamps:true,

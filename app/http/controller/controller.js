@@ -2,7 +2,7 @@ const { default: autoBind } = require("auto-bind")
 
 module.exports=
    
-     new class Controller{
+      class Controller{
         constractur(){
             autoBind(this)
         }

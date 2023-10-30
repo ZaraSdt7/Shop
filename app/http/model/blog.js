@@ -1,4 +1,5 @@
 const { default: mongoose } = require("mongoose");
+const { Comentschema } = require("./public.schema");
 
 const Blogschema = new mongoose.Schema({
 author:{type:mongoose.Types.ObjectId , ref:"user",requried:true},
@@ -6,7 +7,7 @@ title:{type:String ,requried:true},
 description:{type:String , requried:true},
 content:{type:String , requried:true}, //محتوا
 category:{type:[mongoose.Types.ObjectId], ref:"category"},
-comment:{type:[],default:[]},
+comment:{type:[Comentschema],default:[]},
 like:{type:[mongoose.Types.ObjectId] , default:[]},
 bookmark:{type:[mongoose.Types.ObjectId] , default:[]},
 readingTime:{type:Number , default:[]},

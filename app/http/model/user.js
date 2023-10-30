@@ -1,12 +1,10 @@
 const { default: mongoose } = require("mongoose");
-const Productschema = new mongoose.Schema({
-ProductID:{type :mongoose.Types.ObjectId , ref :"product"},
-count:{type:Number , default:0},
-image:{type:String , default:[]}    
-})
-const Bascketschema = new mongoose.Schema({
-    products:{type:[Productschema]}
-})
+const { Cartmodel } = require("./cart");
+// const Productschema = new mongoose.Schema({
+// ProductID:{type :mongoose.Types.ObjectId , ref :"product"},
+// count:{type:Number , default:0},
+// image:{type:String , default:[]}    
+// })
 const UserSchema = new mongoose.Schema({
 user_name :{type:String , required:true , lowercase:true},
 mobile:{type: String , required:true , unique:true},
@@ -23,13 +21,12 @@ bills:{type:[],default:[]},
 discount:{type:Number,default:0},
 role:{type:[String] , default:"USER"},
 products:{type:[mongoose.Types.ObjectId],ref:"product",default:[]},
-<<<<<<< HEAD
+
 bascket:{type:Bascketschema},
 accesstoken:{type:String,default:''},
-RefreshToken:{type:String,default:''}
-=======
-bascket:{type:Bascketschema}
->>>>>>> 756a095c2372d24b879578112ed07d16a2263bd4
+RefreshToken:{type:String,default:''},
+bascket:{type:[Cartmodel]}
+
 
 },{
     timestamps:true,
