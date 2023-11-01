@@ -12,18 +12,17 @@ const { default: mongoose } = require("mongoose");
 //         virtuals:true
 //     }
 // })
-const Comentschema = new mongoose.Schema({
+const Commentschema = new mongoose.Schema({
 userID:{type:mongoose.Types.ObjectId , ref:"user", required:true},
 ProductID:{type:mongoose.Types.ObjectId , ref:"product", required:true},
 comment:{type:String , required:true},
 show:{type:Boolean , required:true , default:false},
 opentocomment:{type:Boolean , default:false},
-reply:{type:[mongoose.Types.ObjectId],default:[]}    
+reply:{type:[mongoose.Types.ObjectId],ref:"comment",default:[]}    
 },{
     timestamps:true
 
 })
 module.exports={
-    Comentschema,
-    Answerschema
+    Commentschema,
 }
