@@ -2,8 +2,6 @@ const { default: mongoose } = require("mongoose");
 const { Cartmodel } = require("./cart");
 const Productschema = new mongoose.Schema({
 ProductID:{type :mongoose.Types.ObjectId , ref :"product"},
-count:{type:Number , default:0},
-image:{type:String , default:[]}    
 })
 const Cartschema = new mongoose.Schema({
     productID:{type:[Productschema] , ref:"product",required:true},
