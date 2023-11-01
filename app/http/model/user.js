@@ -1,10 +1,9 @@
 const { default: mongoose } = require("mongoose");
-const { Cartmodel } = require("./cart");
 const Productschema = new mongoose.Schema({
 ProductID:{type :mongoose.Types.ObjectId , ref :"product"},
 })
 const Cartschema = new mongoose.Schema({
-    productID:{type:[Productschema],required:true},
+    productID:{type:[Productschema]},
     userID:{type:mongoose.Types.ObjectId , ref:"user", required:true},
     count:{type:Number , required:true},
     image:{type:String}    
@@ -23,7 +22,7 @@ otp:{type:Object,default:{
 }},
 bills:{type:[],default:[]},
 discount:{type:Number,default:0},
-role:{type:[String] , default:"USER"},
+role:{type:String , default:"USER"},
 products:{type:mongoose.Types.ObjectId,ref:"product",default:[]},
 
 bascket:{type:Cartschema},
