@@ -8,8 +8,8 @@ subcategory:{type :[String], required:true},  //نوع لباس
 description:{type:String , required: true},
 detail:{type:String , required:true},  //جزئیات محصول  
 image:{type:[String],required:true}, 
-color:{type:String , required:true},
-size:{type:String , required:true ,default:"free size"},
+color:{type:[String] , required:true},
+size:{type:[String] , required:true ,default:"free size"},
 size_detail:{type:Object, default:{
     waist: "",
     chest: "",
@@ -17,10 +17,10 @@ size_detail:{type:Object, default:{
     height: "",
     width: ""    
 }},
-like:{type:[mongoose.Types.ObjectId], ref:"user",default:[]},
-dislike:{type:[mongoose.Types.ObjectId],ref:"user",default:[]},
+likes:{type:[mongoose.Types.ObjectId], ref:"user",default:[]},
+dislikes:{type:[mongoose.Types.ObjectId],ref:"user",default:[]},
 rate:{type:Number,default:[]},
-bookmark:{type:[mongoose.Types.ObjectId],ref:"user",default:[]},
+bookmarks:{type:[mongoose.Types.ObjectId],ref:"user",default:[]},
 supplier:{type:mongoose.Types.ObjectId , ref:"user"},
 price:{type:Number, required:true,default:[] },
 discount:{type:Number , required:true , default:[]},

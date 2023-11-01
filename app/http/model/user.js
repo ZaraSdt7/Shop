@@ -1,10 +1,16 @@
 const { default: mongoose } = require("mongoose");
 const { Cartmodel } = require("./cart");
-// const Productschema = new mongoose.Schema({
-// ProductID:{type :mongoose.Types.ObjectId , ref :"product"},
-// count:{type:Number , default:0},
-// image:{type:String , default:[]}    
-// })
+const Productschema = new mongoose.Schema({
+ProductID:{type :mongoose.Types.ObjectId , ref :"product"},
+count:{type:Number , default:0},
+image:{type:String , default:[]}    
+})
+const Cartschema = new mongoose.Schema({
+    productID:{type:[Productschema] , ref:"product",required:true},
+    userID:{type:mongoose.Types.ObjectId , ref:"user", required:true},
+    count:{type:Number , required:true},
+    image:{type:String}    
+    })
 const UserSchema = new mongoose.Schema({
 user_name :{type:String , required:true , lowercase:true},
 mobile:{type: String , required:true , unique:true},
@@ -20,12 +26,11 @@ otp:{type:Object,default:{
 bills:{type:[],default:[]},
 discount:{type:Number,default:0},
 role:{type:[String] , default:"USER"},
-products:{type:[mongoose.Types.ObjectId],ref:"product",default:[]},
+products:{type:mongoose.Types.ObjectId,ref:"product",default:[]},
 
-bascket:{type:Bascketschema},
+bascket:{type:Cartschema},
 accesstoken:{type:String,default:''},
-RefreshToken:{type:String,default:''},
-bascket:{type:[Cartmodel]}
+RefreshToken:{type:String,default:''}
 
 
 },{

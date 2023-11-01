@@ -7,11 +7,11 @@ title:{type:String ,requried:true},
 description:{type:String , requried:true},
 content:{type:String , requried:true}, //محتوا
 category:{type:[mongoose.Types.ObjectId], ref:"category"},
-comment:{type:[Comentschema],default:[]},
-like:{type:[mongoose.Types.ObjectId] , default:[]},
-bookmark:{type:[mongoose.Types.ObjectId] , default:[]},
+comments:{type:[Comentschema],default:[]},
+likes:{type:[mongoose.Types.ObjectId] , default:[]},
+bookmarks:{type:[mongoose.Types.ObjectId] , default:[]},
 readingTime:{type:Number , default:[]},
-similarblog:{type:mongoose.Types.ObjectId , default:[]}, //مقالات مشابه
+similarblog:{type:[mongoose.Types.ObjectId] , default:[]}, //مقالات مشابه
 image:{type:String, default:[]},
 videoAddress:{type:String,default:[]}
 
