@@ -1,5 +1,5 @@
 const { default: mongoose } = require("mongoose");
-const { Comentschema } = require("./public.schema");
+const { Comentschema, Rateschema } = require("./public.schema");
 
 const Productschema = new mongoose.SchemaType({
 nema_product:{type:String , required:true},
@@ -8,18 +8,18 @@ subcategory:{type :[String], required:true},  //نوع لباس
 description:{type:String , required: true},
 detail:{type:String , required:true},  //جزئیات محصول  
 image:{type:[String],required:true}, 
-color:{type:[String] , required:true},
+colors:{type:[String] , required:true},
 size:{type:[String] , required:true ,default:"free size"},
 size_detail:{type:Object, default:{
-    waist: "",
-    chest: "",
-    sleeve: "",
-    height: "",
-    width: ""    
+    waist: "", //سایز کمر
+    chest: "", // سایز سینه
+    sleeve: "", // سایز استین
+    height: "", // ارتفاع
+    width: ""    // عرض
 }},
 likes:{type:[mongoose.Types.ObjectId], ref:"user",default:[]},
 dislikes:{type:[mongoose.Types.ObjectId],ref:"user",default:[]},
-rate:{type:Number,default:[]},
+rate:{type:Rateschema},
 bookmarks:{type:[mongoose.Types.ObjectId],ref:"user",default:[]},
 supplier:{type:mongoose.Types.ObjectId , ref:"user"},
 price:{type:Number, required:true,default:[] },

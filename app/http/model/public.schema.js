@@ -12,6 +12,11 @@ const { default: mongoose } = require("mongoose");
 //         virtuals:true
 //     }
 // })
+const Rateschema = new mongoose.Schema({
+ProductID:{type:mongoose.Types.ObjectId , ref:"product" , required:true},
+userID:{type:mongoose.Types.ObjectId , ref:"user", required:true},
+rating:{type:Number , default:0}    
+})
 const Commentschema = new mongoose.Schema({
 userID:{type:mongoose.Types.ObjectId , ref:"user", required:true},
 ProductID:{type:mongoose.Types.ObjectId , ref:"product", required:true},
@@ -25,4 +30,5 @@ reply:{type:[mongoose.Types.ObjectId],ref:"comment",default:[]}
 })
 module.exports={
     Commentschema,
+    Rateschema
 }
